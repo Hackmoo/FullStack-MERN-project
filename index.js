@@ -16,9 +16,12 @@ app.use(express.json()) // Позволяет читать JSON для express
 
 app.post('/login', loginValidation, userController.login)
 app.post('/register', registerValidation , userController.register)
-app.get('/me', checkAuth, userController.getMe)
 app.get('/posts', postController.getAll)
+app.get('/posts/:id', postController.getOne)
 app.post('/posts', checkAuth,postCreateValidation,postController.create)
+app.get('/me', checkAuth, userController.getMe)
+app.delete('/posts/:id', checkAuth,postController.remove)
+app.patch('/posts/:id', checkAuth,postController.update)
 
 app.listen(7777, (err) => {   // Установка порта сервера, и проверка на ошибки
   if(err) return console.log(err)
