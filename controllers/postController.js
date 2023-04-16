@@ -19,7 +19,6 @@ export const create = async (req,res) => {
      })
    }
 }
-
 export const getAll = async (req,res) => {
     try{
       const posts = await PostModel.find().populate('user').exec()
@@ -67,7 +66,6 @@ export const getOne = async (req,res) => {
      })
    }
 }
-
 export const remove = async (req,res) => {
    try{
      const postId = req.params.id
@@ -99,7 +97,6 @@ export const remove = async (req,res) => {
      })
    }
 }
-
 export const update = async (req,res) => {
   try{
     const postId = req.params.id
